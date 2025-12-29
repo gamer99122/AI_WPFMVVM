@@ -1,0 +1,33 @@
+<Window x:Class="HelloWorldMVVM.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="clr-namespace:HelloWorldMVVM.ViewModels"
+        Title="{Binding Title}"
+        Height="300"
+        Width="500"
+        WindowStartupLocation="CenterScreen">
+
+    <!-- 設定 DataContext 為 MainViewModel -->
+    <Window.DataContext>
+        <vm:MainViewModel />
+    </Window.DataContext>
+
+    <Grid Background="#F0F0F0">
+        <StackPanel VerticalAlignment="Center"
+                    HorizontalAlignment="Center">
+
+            <!-- 繫結 Message 屬性 -->
+            <TextBlock Text="{Binding Message}"
+                       FontSize="24"
+                       FontWeight="Bold"
+                       Foreground="#2C3E50"
+                       HorizontalAlignment="Center"
+                       Margin="20"/>
+
+            <TextBlock Text="這是您的第一個 MVVM 應用程式"
+                       FontSize="14"
+                       Foreground="#7F8C8D"
+                       HorizontalAlignment="Center"/>
+        </StackPanel>
+    </Grid>
+</Window>

@@ -1,0 +1,129 @@
+-- =============================================
+-- WPF MVVM Dapper 範例 - 範例資料
+-- =============================================
+
+-- =============================================
+-- 1. 插入客戶資料
+-- =============================================
+INSERT INTO Customers (Name, Email, Phone, Address, City, Country, PostalCode) VALUES
+('王小明', 'wang.xiaoming@example.com', '0912-345-678', '台北市信義區信義路五段7號', '台北市', 'Taiwan', '110'),
+('李美美', 'li.meimei@example.com', '0923-456-789', '新北市板橋區中山路一段152號', '新北市', 'Taiwan', '220'),
+('張大力', 'zhang.dali@example.com', '0934-567-890', '台中市西屯區台灣大道三段99號', '台中市', 'Taiwan', '407'),
+('陳小華', 'chen.xiaohua@example.com', '0945-678-901', '高雄市前鎮區中山二路5號', '高雄市', 'Taiwan', '806'),
+('林雅婷', 'lin.yating@example.com', '0956-789-012', '台南市東區中華東路三段269號', '台南市', 'Taiwan', '701'),
+('黃志明', 'huang.zhiming@example.com', '0967-890-123', '桃園市中壢區中央西路二段141號', '桃園市', 'Taiwan', '320'),
+('吳建國', 'wu.jianguo@example.com', '0978-901-234', '新竹市東區光復路二段101號', '新竹市', 'Taiwan', '300'),
+('劉雅琪', 'liu.yaqi@example.com', '0989-012-345', '台北市大安區敦化南路二段105號', '台北市', 'Taiwan', '106'),
+('鄭文彬', 'zheng.wenbin@example.com', '0911-234-567', '台中市北區三民路三段161號', '台中市', 'Taiwan', '404'),
+('謝佳玲', 'xie.jialing@example.com', '0922-345-678', '高雄市左營區博愛二路777號', '高雄市', 'Taiwan', '813');
+
+-- =============================================
+-- 2. 插入類別資料
+-- =============================================
+INSERT INTO Categories (Name, Description, DisplayOrder) VALUES
+('電子產品', '各類電子產品', 1),
+('電腦週邊', '電腦相關週邊設備', 2),
+('辦公用品', '辦公室文具用品', 3),
+('家電產品', '家用電器', 4),
+('手機配件', '手機相關配件', 5);
+
+-- =============================================
+-- 3. 插入產品資料
+-- =============================================
+INSERT INTO Products (Name, Description, Category, Price, Stock, MinStock, SKU) VALUES
+('無線滑鼠', 'Logitech MX Master 3 無線滑鼠', '電腦週邊', 2990, 50, 10, 'MOUSE-001'),
+('機械鍵盤', 'Corsair K95 RGB 機械式鍵盤', '電腦週邊', 5990, 30, 5, 'KB-001'),
+('27吋顯示器', 'Dell UltraSharp U2720Q 27吋 4K 顯示器', '電子產品', 18900, 15, 3, 'MON-001'),
+('筆記型電腦', 'ASUS ZenBook 14 筆記型電腦', '電子產品', 35900, 20, 5, 'LAPTOP-001'),
+('USB-C Hub', '7合1 USB-C 多功能轉接器', '電腦週邊', 890, 100, 20, 'HUB-001'),
+('辦公椅', 'Herman Miller Aeron 人體工學椅', '辦公用品', 38900, 10, 2, 'CHAIR-001'),
+('站立式桌', '電動升降桌 120x60cm', '辦公用品', 12900, 8, 2, 'DESK-001'),
+('無線耳機', 'Sony WH-1000XM5 降噪耳機', '電子產品', 9990, 25, 5, 'AUDIO-001'),
+('網路攝影機', 'Logitech C920 HD Pro 網路攝影機', '電腦週邊', 2490, 40, 10, 'CAM-001'),
+('智能手錶', 'Apple Watch Series 9', '電子產品', 13900, 30, 8, 'WATCH-001'),
+('行動電源', '20000mAh 快充行動電源', '手機配件', 990, 80, 20, 'PWR-001'),
+('手機支架', '桌面手機平板支架', '手機配件', 290, 150, 30, 'STAND-001'),
+('藍牙喇叭', 'JBL Flip 6 防水藍牙喇叭', '電子產品', 3990, 35, 10, 'SPEAKER-001'),
+('檯燈', 'BenQ WiT ScreenBar 螢幕智能掛燈', '辦公用品', 3590, 25, 5, 'LAMP-001'),
+('滑鼠墊', '大型遊戲滑鼠墊 80x30cm', '電腦週邊', 390, 120, 30, 'PAD-001');
+
+-- =============================================
+-- 4. 插入供應商資料
+-- =============================================
+INSERT INTO Suppliers (CompanyName, ContactName, Email, Phone, City, Country) VALUES
+('科技電子股份有限公司', '張經理', 'sales@techelectronics.com.tw', '02-2345-6789', '台北市', 'Taiwan'),
+('辦公家具企業', '李經理', 'info@officefurniture.com.tw', '04-2234-5678', '台中市', 'Taiwan'),
+('電腦配件行', '王經理', 'service@pcparts.com.tw', '07-345-6789', '高雄市', 'Taiwan');
+
+-- =============================================
+-- 5. 插入訂單資料
+-- =============================================
+INSERT INTO Orders (OrderNumber, CustomerId, OrderDate, Status, TotalAmount, ShippingAddress) VALUES
+('ORD-2024-001', 1, datetime('now', '-10 days'), 'Delivered', 8980, '台北市信義區信義路五段7號'),
+('ORD-2024-002', 2, datetime('now', '-8 days'), 'Delivered', 35900, '新北市板橋區中山路一段152號'),
+('ORD-2024-003', 3, datetime('now', '-6 days'), 'Shipped', 41890, '台中市西屯區台灣大道三段99號'),
+('ORD-2024-004', 4, datetime('now', '-5 days'), 'Processing', 6480, '高雄市前鎮區中山二路5號'),
+('ORD-2024-005', 1, datetime('now', '-3 days'), 'Processing', 13900, '台北市信義區信義路五段7號'),
+('ORD-2024-006', 5, datetime('now', '-2 days'), 'Pending', 2890, '台南市東區中華東路三段269號'),
+('ORD-2024-007', 6, datetime('now', '-1 days'), 'Pending', 18900, '桃園市中壢區中央西路二段141號'),
+('ORD-2024-008', 7, datetime('now'), 'Pending', 5990, '新竹市東區光復路二段101號');
+
+-- =============================================
+-- 6. 插入訂單明細資料
+-- =============================================
+-- ORD-2024-001 的明細
+INSERT INTO OrderItems (OrderId, ProductId, ProductName, Quantity, UnitPrice, Discount) VALUES
+(1, 1, '無線滑鼠', 2, 2990, 0),
+(1, 1, '無線滑鼠', 1, 2990, 0);
+
+-- ORD-2024-002 的明細
+INSERT INTO OrderItems (OrderId, ProductId, ProductName, Quantity, UnitPrice, Discount) VALUES
+(2, 4, '筆記型電腦', 1, 35900, 0);
+
+-- ORD-2024-003 的明細
+INSERT INTO OrderItems (OrderId, ProductId, ProductName, Quantity, UnitPrice, Discount) VALUES
+(3, 4, '筆記型電腦', 1, 35900, 0),
+(3, 2, '機械鍵盤', 1, 5990, 0);
+
+-- ORD-2024-004 的明細
+INSERT INTO OrderItems (OrderId, ProductId, ProductName, Quantity, UnitPrice, Discount) VALUES
+(4, 9, '網路攝影機', 1, 2490, 0),
+(4, 8, '無線耳機', 1, 3990, 0.10);
+
+-- ORD-2024-005 的明細
+INSERT INTO OrderItems (OrderId, ProductId, ProductName, Quantity, UnitPrice, Discount) VALUES
+(5, 10, '智能手錶', 1, 13900, 0);
+
+-- ORD-2024-006 的明細
+INSERT INTO OrderItems (OrderId, ProductId, ProductName, Quantity, UnitPrice, Discount) VALUES
+(6, 1, '無線滑鼠', 1, 2990, 0.05);
+
+-- ORD-2024-007 的明細
+INSERT INTO OrderItems (OrderId, ProductId, ProductName, Quantity, UnitPrice, Discount) VALUES
+(7, 3, '27吋顯示器', 1, 18900, 0);
+
+-- ORD-2024-008 的明細
+INSERT INTO OrderItems (OrderId, ProductId, ProductName, Quantity, UnitPrice, Discount) VALUES
+(8, 2, '機械鍵盤', 1, 5990, 0);
+
+-- =============================================
+-- 7. 插入庫存異動記錄
+-- =============================================
+INSERT INTO InventoryTransactions (ProductId, TransactionType, Quantity, Reference, Notes) VALUES
+(1, 'Purchase', 100, 'PO-2024-001', '進貨'),
+(2, 'Purchase', 50, 'PO-2024-002', '進貨'),
+(1, 'Sale', -3, 'ORD-2024-001', '銷售'),
+(4, 'Sale', -2, 'ORD-2024-002', '銷售');
+
+-- =============================================
+-- 完成
+-- =============================================
+
+-- 顯示插入的資料統計
+SELECT '客戶總數' AS Item, COUNT(*) AS Count FROM Customers
+UNION ALL
+SELECT '產品總數', COUNT(*) FROM Products
+UNION ALL
+SELECT '訂單總數', COUNT(*) FROM Orders
+UNION ALL
+SELECT '訂單明細總數', COUNT(*) FROM OrderItems;

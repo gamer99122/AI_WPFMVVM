@@ -1,0 +1,70 @@
+<Window x:Class="DataBindingExample.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="clr-namespace:DataBindingExample.ViewModels"
+        Title="Data Binding 範例"
+        Height="450"
+        Width="600"
+        WindowStartupLocation="CenterScreen">
+
+    <Window.DataContext>
+        <vm:MainViewModel />
+    </Window.DataContext>
+
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- OneWay Binding 範例 -->
+        <GroupBox Grid.Row="0"
+                  Header="OneWay Binding (單向繫結)"
+                  Padding="10">
+            <StackPanel>
+                <TextBlock Text="說明：資料只能從 ViewModel 傳到 View"
+                           Foreground="Gray"
+                           Margin="0,0,0,10"/>
+                <TextBlock Text="{Binding OneWayText, Mode=OneWay}"
+                           FontSize="14"
+                           Foreground="#2C3E50"/>
+            </StackPanel>
+        </GroupBox>
+
+        <!-- TwoWay Binding 範例 -->
+        <GroupBox Grid.Row="2"
+                  Header="TwoWay Binding (雙向繫結)"
+                  Padding="10">
+            <StackPanel>
+                <TextBlock Text="說明：在 TextBox 中修改文字，下方會同步更新"
+                           Foreground="Gray"
+                           Margin="0,0,0,10"/>
+                <TextBox Text="{Binding TwoWayText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                         FontSize="14"
+                         Padding="5"
+                         Margin="0,0,0,10"/>
+                <TextBlock Text="{Binding TwoWayText}"
+                           FontSize="14"
+                           Foreground="#27AE60"
+                           FontWeight="Bold"/>
+            </StackPanel>
+        </GroupBox>
+
+        <!-- OneTime Binding 範例 -->
+        <GroupBox Grid.Row="4"
+                  Header="OneTime Binding (一次性繫結)"
+                  Padding="10">
+            <StackPanel>
+                <TextBlock Text="說明：只在初始化時繫結一次，之後不會更新"
+                           Foreground="Gray"
+                           Margin="0,0,0,10"/>
+                <TextBlock Text="{Binding OneTimeText, Mode=OneTime}"
+                           FontSize="14"
+                           Foreground="#E74C3C"/>
+            </StackPanel>
+        </GroupBox>
+    </Grid>
+</Window>
